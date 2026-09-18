@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Channel Pulse",
+  "version": "0.1.1",
+  "description": "Adds a transparent 30-day activity pulse beside a YouTube channel's subscriber count.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.googleapis.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "YouTube Channel Pulse"
+  }
+}

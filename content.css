@@ -1,0 +1,81 @@
+#yt-channel-pulse-root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  font-family: Roboto, Arial, sans-serif;
+  color: var(--yt-spec-text-primary, #0f0f0f);
+}
+
+.ytcp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 22px;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  color: var(--yt-spec-text-secondary, #606060);
+  font: 500 11px/16px Roboto, Arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ytcp-pill:hover,
+.ytcp-pill[aria-expanded="true"] {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.ytcp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8a8a8a;
+}
+
+.ytcp-pill[data-state="active"] .ytcp-dot { background: #16a34a; }
+.ytcp-pill[data-state="steady"] .ytcp-dot { background: #f59e0b; }
+.ytcp-pill[data-state="quiet"] .ytcp-dot { background: #94a3b8; }
+.ytcp-pill[data-state="loading"] .ytcp-dot { animation: ytcp-pulse 1.2s infinite; }
+.ytcp-pill[data-state="error"] .ytcp-dot { background: #ef4444; }
+
+.ytcp-panel {
+  position: fixed;
+  z-index: 2147483647;
+  width: 292px;
+  box-sizing: border-box;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 16px;
+  background: var(--yt-spec-menu-background, #fff);
+  color: var(--yt-spec-text-primary, #0f0f0f);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .2);
+}
+
+.ytcp-panel[hidden] { display: none; }
+.ytcp-eyebrow { color: #16a34a; font: 700 10px/14px Roboto, Arial, sans-serif; letter-spacing: .1em; }
+.ytcp-title { margin: 2px 0 14px; font: 700 18px/24px Roboto, Arial, sans-serif; }
+.ytcp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ytcp-metric { padding: 10px; border-radius: 10px; background: color-mix(in srgb, currentColor 5%, transparent); }
+.ytcp-metric strong, .ytcp-metric span { display: block; }
+.ytcp-metric strong { font: 700 16px/20px Roboto, Arial, sans-serif; }
+.ytcp-metric span { margin-top: 2px; color: var(--yt-spec-text-secondary, #606060); font: 400 11px/15px Roboto, Arial, sans-serif; }
+.ytcp-reach { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 5px 8px; margin-top: 14px; }
+.ytcp-reach-copy { color: var(--yt-spec-text-secondary, #606060); font-size: 11px; }
+.ytcp-reach-value { font-size: 11px; }
+.ytcp-track { grid-column: 1 / -1; height: 5px; overflow: hidden; border-radius: 5px; background: color-mix(in srgb, currentColor 10%, transparent); }
+.ytcp-track span { display: block; height: 100%; border-radius: inherit; background: #16a34a; }
+.ytcp-note { margin: 14px 0 0; color: var(--yt-spec-text-secondary, #606060); font: 400 11px/16px Roboto, Arial, sans-serif; }
+.ytcp-note-prominent { margin-top: 4px; font-size: 12px; }
+.ytcp-updated { margin: 8px 0 0; color: var(--yt-spec-text-secondary, #606060); font: 400 10px/14px Roboto, Arial, sans-serif; }
+.ytcp-settings { width: 100%; margin-top: 14px; padding: 9px 12px; border: 0; border-radius: 18px; background: #065fd4; color: #fff; font: 500 12px/16px Roboto, Arial, sans-serif; cursor: pointer; }
+.ytcp-settings:hover { background: #0556bf; }
+
+@keyframes ytcp-pulse {
+  50% { opacity: .35; transform: scale(.8); }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ytcp-panel { box-shadow: 0 12px 42px rgba(0, 0, 0, .55); }
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Channel Pulse settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <section class="setup-card">
+        <div class="brand"><span></span> CHANNEL PULSE</div>
+        <h1>See whether a channel is really active.</h1>
+        <p class="lede">A small, transparent 30-day activity snapshot beside the subscriber count on YouTube.</p>
+
+        <label for="api-key">YouTube Data API key</label>
+        <div class="key-row">
+          <input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…">
+          <button id="toggle-key" class="secondary" type="button">Show</button>
+        </div>
+        <div class="actions">
+          <button id="save" class="primary" type="button">Save and test</button>
+          <a href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank" rel="noreferrer">Get an API key ↗</a>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <p class="privacy">Your key stays in Chrome’s local extension storage and is sent only to Google’s YouTube Data API.</p>
+      </section>
+
+      <section class="preview-card" aria-label="Example Channel Pulse user interface">
+        <p class="preview-label">WHAT YOU’LL SEE ON YOUTUBE</p>
+        <div class="video-placeholder"><span>▶</span></div>
+        <div class="channel-row">
+          <div class="avatar">A</div>
+          <div class="channel-copy"><strong>Example Creator</strong><span>1.2M subscribers</span></div>
+          <div class="pulse-wrap">
+            <button id="demo-toggle" class="demo-pill" type="button" aria-expanded="true"><i></i> Active · 8 uploads/30d</button>
+            <div id="demo-panel" class="demo-panel">
+              <div class="eyebrow">CHANNEL PULSE</div>
+              <h2>Last 30 days</h2>
+              <div class="metrics">
+                <div><strong>8</strong><span>Uploads</span></div>
+                <div><strong>940K</strong><span>Recent views</span></div>
+                <div><strong>108K</strong><span>Median / video</span></div>
+                <div><strong>4.2%</strong><span>Engagement</span></div>
+              </div>
+              <div class="reach"><span>Median reach vs subscribers</span><strong>9%</strong><b><i></i></b></div>
+              <p>Recent views are current views on videos published in this period—not unique viewers.</p>
+            </div>
+          </div>
+          <button class="subscribe" type="button" tabindex="-1">Subscribe</button>
+        </div>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
